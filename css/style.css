@@ -270,7 +270,7 @@ footer {
   text-decoration: none;
   display: flex;
   align-items: center;
-  justify-content: center; /* Esto es vital para el centrado interno */
+  justify-content: center;
   gap: 8px;
 }
 
