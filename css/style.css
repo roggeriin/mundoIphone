@@ -264,6 +264,16 @@ footer {
   width: 100%;
 }
 
+.footer-contacto span,
+.link-footer {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Esto es vital para el centrado interno */
+  gap: 8px;
+}
+
 .link-footer {
   color: white;
   text-decoration: none;
@@ -296,7 +306,7 @@ footer {
     grid-template-columns: 1fr;
   }
 
-.contacto-grid {
+  .contacto-grid {
     grid-template-columns: 1fr;
     padding: 20px;
     margin: 2rem 1rem;
