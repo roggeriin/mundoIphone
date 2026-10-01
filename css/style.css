@@ -1,0 +1,304 @@
+/* -------------------------------------------------------------------------- */
+/*                              ESTILOS GENERALES                             */
+/* -------------------------------------------------------------------------- */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.contenido-principal {
+  flex: 1;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                             ENCABEZADO Y BANNER                            */
+/* -------------------------------------------------------------------------- */
+header,
+.hero {
+  background: linear-gradient(90deg, #020024 0%, #090979 38%, #00d4ff 100%);
+  color: white;
+}
+
+header {
+  padding: 1rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                          SECCIONES Y CONTENEDORES                          */
+/* -------------------------------------------------------------------------- */
+.container {
+  padding: 2rem 5%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.titulo-seccion,
+.sobre-nosotros h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+.sobre-nosotros {
+  background-color: white;
+  border: 1px solid #e1e8ed;
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 2rem auto 3rem auto;
+  text-align: center;
+}
+
+.sobre-nosotros p {
+  color: #555;
+  line-height: 1.6;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                            CATÁLOGO DE PRODUCTOS                           */
+/* -------------------------------------------------------------------------- */
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 1fr));
+  gap: 35px;
+}
+
+.producto {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
+
+.producto:hover {
+  transform: translateY(-5px);
+}
+
+.producto-img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.producto h3 {
+  margin: 0 0 10px 0;
+}
+
+.producto p {
+  flex-grow: 1;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.precio {
+  font-size: 1.25rem;
+  color: #000000;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.btn-comprar {
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  CONTACTO                                  */
+/* -------------------------------------------------------------------------- */
+
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin: 3rem auto;
+  max-width: 900px;
+  background: rgb(255, 255, 255);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.contacto-info-extra h3 {
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.contacto-info-extra p {
+  color: #777;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.titulo-redes {
+  margin-top: 20px;
+}
+
+.redes-contacto-lista {
+  display: flex;
+  gap: 15px;
+}
+
+.redes-contacto-lista a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  color: white;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.redes-contacto-lista a:hover {
+  background-color: #3498db;
+}
+
+.contacto-form-box h2 {
+  font-size: 1.8rem;
+  color: #555;
+  margin-bottom: 30px;
+  margin-top: 0;
+}
+
+.form-grupo-linea {
+  margin-bottom: 30px;
+}
+
+.form-grupo-linea input,
+.form-grupo-linea textarea {
+  width: 100%;
+  padding: 10px 0;
+  border: none;
+  border-bottom: 1.5px solid #ccc;
+  background-color: transparent;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  color: #333;
+  outline: none;
+  transition: border-bottom-color 0.3s;
+  resize: vertical;
+}
+
+.form-grupo-linea input:focus,
+.form-grupo-linea textarea:focus {
+  border-bottom-color: #111;
+}
+
+.btn-enviar-linea {
+  background-color: transparent;
+  color: #333;
+  border: 1.5px solid #333;
+  padding: 10px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-enviar-linea:hover {
+  background-color: #333;
+  color: white;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                PIE DE PÁGINA                               */
+/* -------------------------------------------------------------------------- */
+footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: auto;
+}
+
+.footer-contacto {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.link-footer {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  CELULARES                                 */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  nav a {
+    margin-left: 0;
+  }
+
+  .grid-productos {
+    grid-template-columns: 1fr;
+  }
+
+.contacto-grid {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    margin: 2rem 1rem;
+    box-sizing: border-box;
+    gap: 30px;
+  }
+}

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mundo iPhone - Contacto</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,600;0,700;0,800;1,100;1,400;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <!-- ENCABEZADO -->
+    <header>
+      <div class="logo">Mundo iPhone</div>
+      <nav>
+        <a href="../index.html"><i class="fas fa-home"></i> Inicio</a>
+        <a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a>
+        <a href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito</a>
+      </nav>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL: CONTACTO -->
+    <main class="container">
+      <div class="contacto-grid">
+        <!-- Columna Izquierda: Ubicación y Redes -->
+        <section class="contacto-info-extra">
+          <h3>Ubicación</h3>
+          <p>Av. España 400<br />Tandil, Buenos Aires</p>
+
+          <h3 class="titulo-redes">Redes Sociales</h3>
+          <div class="redes-contacto-lista">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </section>
+
+        <!-- Columna Derecha: Formulario Minimalista -->
+        <section class="contacto-form-box">
+          <h2>Ponte en contacto con nosotros</h2>
+
+          <!-- Reemplazá "tu-codigo" por tu link real de Formspree -->
+          <form
+            action="https://formspree.io/f/xyezazga"
+            method="POST"
+            class="formulario-limpio"
+          >
+            <div class="form-grupo-linea">
+              <input
+                type="text"
+                name="nombre"
+                placeholder="Nombre completo"
+                required
+                aria-label="Nombre completo"
+              />
+            </div>
+
+            <div class="form-grupo-linea">
+              <input
+                type="email"
+                name="email"
+                placeholder="Correo electrónico válido"
+                required
+                aria-label="Correo electrónico"
+              />
+            </div>
+
+            <div class="form-grupo-linea">
+              <textarea
+                name="mensaje"
+                rows="4"
+                placeholder="Escribe tu mensaje aquí..."
+                required
+                aria-label="Mensaje"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn-enviar-linea">Enviar</button>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+      <p class="copyright">
+        &copy; 2026 Mundo iPhone. Todos los derechos reservados.
+      </p>
+    </footer>
+  </body>
+</html>
