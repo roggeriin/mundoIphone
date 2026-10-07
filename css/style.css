@@ -12,15 +12,27 @@ body {
   min-height: 100vh;
 }
 
-.contenido-principal {
+.principal {
   flex: 1;
+}
+
+.container {
+  padding: 2rem 5%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.titulo {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 2rem;
 }
 
 /* -------------------------------------------------------------------------- */
 /*                             ENCABEZADO Y BANNER                            */
 /* -------------------------------------------------------------------------- */
 header,
-.hero {
+.banner {
   background: linear-gradient(90deg, #020024 0%, #090979 38%, #00d4ff 100%);
   color: white;
 }
@@ -30,11 +42,6 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.hero {
-  text-align: center;
-  padding: 3rem 1rem;
 }
 
 .logo {
@@ -52,23 +59,15 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* -------------------------------------------------------------------------- */
-/*                          SECCIONES Y CONTENEDORES                          */
-/* -------------------------------------------------------------------------- */
-.container {
-  padding: 2rem 5%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.titulo-seccion,
-.sobre-nosotros h2 {
+.banner {
   text-align: center;
-  color: #2c3e50;
-  margin-bottom: 2rem;
+  padding: 3rem 1rem;
 }
 
-.sobre-nosotros {
+/* -------------------------------------------------------------------------- */
+/*                           SECCIÓN SOBRE NOSOTROS                           */
+/* -------------------------------------------------------------------------- */
+.nosotros {
   background-color: white;
   border: 1px solid #e1e8ed;
   border-radius: 8px;
@@ -78,7 +77,12 @@ nav a:hover {
   text-align: center;
 }
 
-.sobre-nosotros p {
+.nosotros h2 {
+  color: #2c3e50;
+  margin: 0 0 1rem 0;
+}
+
+.nosotros p {
   color: #555;
   line-height: 1.6;
 }
@@ -86,13 +90,13 @@ nav a:hover {
 /* -------------------------------------------------------------------------- */
 /*                            CATÁLOGO DE PRODUCTOS                           */
 /* -------------------------------------------------------------------------- */
-.grid-productos {
+.productos {
   display: grid;
   grid-template-columns: repeat(3, minmax(250px, 1fr));
   gap: 35px;
 }
 
-.producto {
+.item {
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 15px;
@@ -103,22 +107,22 @@ nav a:hover {
   transition: transform 0.2s;
 }
 
-.producto:hover {
+.item:hover {
   transform: translateY(-5px);
 }
 
-.producto-img {
+.foto {
   width: 100%;
   height: 180px;
   object-fit: contain;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
-.producto h3 {
+.item h3 {
   margin: 0 0 10px 0;
 }
 
-.producto p {
+.item p {
   flex-grow: 1;
   color: #555;
   font-size: 0.95rem;
@@ -126,13 +130,13 @@ nav a:hover {
 
 .precio {
   font-size: 1.25rem;
-  color: #000000;
+  color: #000;
   font-weight: bold;
   margin: 10px 0;
 }
 
-.btn-comprar {
-  background-color: #000000;
+.btn {
+  background-color: #000;
   color: white;
   border: none;
   padding: 10px;
@@ -144,41 +148,36 @@ nav a:hover {
 /* -------------------------------------------------------------------------- */
 /*                                  CONTACTO                                  */
 /* -------------------------------------------------------------------------- */
-
-.contacto-grid {
+.caja-contacto {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 50px;
   margin: 3rem auto;
   max-width: 900px;
-  background: rgb(255, 255, 255);
+  background: white;
   padding: 40px;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
-.contacto-info-extra h3 {
+.info h3 {
   font-size: 1.5rem;
   color: #555;
   margin-bottom: 15px;
 }
 
-.contacto-info-extra p {
+.info p {
   color: #777;
   line-height: 1.6;
   margin-bottom: 40px;
 }
 
-.titulo-redes {
-  margin-top: 20px;
-}
-
-.redes-contacto-lista {
+.redes {
   display: flex;
   gap: 15px;
 }
 
-.redes-contacto-lista a {
+.redes a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -191,29 +190,28 @@ nav a:hover {
   transition: background-color 0.3s;
 }
 
-.redes-contacto-lista a:hover {
+.redes a:hover {
   background-color: #3498db;
 }
 
-.contacto-form-box h2 {
+.form h2 {
   font-size: 1.8rem;
   color: #555;
-  margin-bottom: 30px;
-  margin-top: 0;
+  margin: 0 0 30px 0;
 }
 
-.form-grupo-linea {
+.campo {
   margin-bottom: 30px;
 }
 
-.form-grupo-linea input,
-.form-grupo-linea textarea {
+.campo input,
+.campo textarea {
   width: 100%;
   padding: 10px 0;
   border: none;
   border-bottom: 1.5px solid #ccc;
   background-color: transparent;
-  font-family: "Poppins", sans-serif;
+  font-family: inherit;
   font-size: 1rem;
   color: #333;
   outline: none;
@@ -221,24 +219,23 @@ nav a:hover {
   resize: vertical;
 }
 
-.form-grupo-linea input:focus,
-.form-grupo-linea textarea:focus {
+.campo input:focus,
+.campo textarea:focus {
   border-bottom-color: #111;
 }
 
-.btn-enviar-linea {
+.btn-enviar {
   background-color: transparent;
   color: #333;
   border: 1.5px solid #333;
   padding: 10px 30px;
   font-size: 1rem;
   font-weight: 600;
-  font-family: "Poppins", sans-serif;
   cursor: pointer;
   transition: all 0.3s;
 }
 
-.btn-enviar-linea:hover {
+.btn-enviar:hover {
   background-color: #333;
   color: white;
 }
@@ -254,7 +251,7 @@ footer {
   margin-top: auto;
 }
 
-.footer-contacto {
+.footer-info {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -264,8 +261,8 @@ footer {
   width: 100%;
 }
 
-.footer-contacto span,
-.link-footer {
+.footer-info span,
+.enlace {
   color: white;
   text-decoration: none;
   display: flex;
@@ -274,16 +271,8 @@ footer {
   gap: 8px;
 }
 
-.link-footer {
-  color: white;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
 /* -------------------------------------------------------------------------- */
-/*                                  CELULARES                                 */
+/*               ADAPTACIÓN PARA PANTALLAS PEQUEÑAS (CELULARES)               */
 /* -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
   header {
@@ -302,15 +291,19 @@ footer {
     margin-left: 0;
   }
 
-  .grid-productos {
+  .productos,
+  .caja-contacto {
     grid-template-columns: 1fr;
   }
 
-  .contacto-grid {
-    grid-template-columns: 1fr;
+  .caja-contacto {
     padding: 20px;
     margin: 2rem 1rem;
     box-sizing: border-box;
     gap: 30px;
+  }
+
+  .footer-info {
+    flex-direction: column;
   }
 }

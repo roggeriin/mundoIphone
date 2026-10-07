@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mundo iPhone - Tienda Online</title>
-
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -13,37 +12,29 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,600;0,700;0,800;1,100;1,400;1,600;1,700&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <header>
-
       <div class="logo">Mundo iPhone</div>
       <nav>
         <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
-        <a href="./pages/contacto.html"
+        <a href="pages/contacto.html"
           ><i class="fas fa-envelope"></i> Contacto</a
         >
-        <a href="./pages/carrito.html"
+        <a href="pages/carrito.html"
           ><i class="fas fa-shopping-cart"></i> Carrito</a
         >
       </nav>
     </header>
 
-    <!-- ----------------------------------------------------------------------- -->
-    <!--                                 BANNER                                  -->
-    <!-- ----------------------------------------------------------------------- -->
-    <section class="hero">
+    <section class="banner">
       <h1>Bienvenidos a Mundo iPhone</h1>
       <p>Equipos usados seleccionados y testeados con garantía.</p>
       <p>¡Envíos a todo el país!</p>
     </section>
 
-    <!-- ----------------------------------------------------------------------- -->
-    <!--                             SOBRE NOSOTROS                              -->
-    <!-- ----------------------------------------------------------------------- -->
-    <section class="sobre-nosotros">
+    <section class="nosotros">
       <h2>Sobre Nosotros</h2>
       <p>
         Ubicados en el corazón de Tandil, en <strong>Mundo iPhone</strong> nos
@@ -57,20 +48,12 @@
       <p>¡Contactanos para encontrar tu próximo teléfono ideal!</p>
     </section>
 
-    <!-- ----------------------------------------------------------------------- -->
-    <!--                            CATÁLOGO COMPLETO                            -->
-    <!-- ----------------------------------------------------------------------- -->
-    <main class="container">
-      <h2 class="titulo-seccion">Nuestros Productos</h2>
+    <main class="container principal">
+      <h2 class="titulo">Nuestros Productos</h2>
 
-      <div class="grid-productos">
-        <!-- ----------------------------------------------------------------------- -->
-        <!--                                SERIE 13                                 -->
-        <!-- ----------------------------------------------------------------------- -->
-        <article class="producto">
-          <div class="imagen-box">
-            <img src="img/iPhone_13.jpg" alt="iPhone 13" class="producto-img" />
-          </div>
+      <div class="productos">
+        <article class="item">
+          <img src="img/iPhone_13.jpg" alt="iPhone 13" class="foto" />
           <h3>iPhone 13 (Usado)</h3>
           <p>
             Un clásico que nunca falla. Condición estética 9/10, libre de iCloud
@@ -80,17 +63,11 @@
             128GB / 256GB / 512GB
           </p>
           <div class="precio">$380.00</div>
-          <button class="btn-comprar">Añadir al Carrito</button>
+          <button class="btn">Añadir al Carrito</button>
         </article>
 
-        <article class="producto">
-          <div class="imagen-box">
-            <img
-              src="img/iPhone_13_Pro.jpg"
-              alt="iPhone 13 PRO"
-              class="producto-img"
-            />
-          </div>
+        <article class="item">
+          <img src="img/iPhone_13_Pro.jpg" alt="iPhone 13 PRO" class="foto" />
           <h3>iPhone 13 PRO (Usado)</h3>
           <p>
             Cámaras premium y pantalla súper fluida. Sin detalles en los bordes
@@ -100,17 +77,15 @@
             128GB / 256GB / 512GB / 1TB
           </p>
           <div class="precio">$490.00</div>
-          <button class="btn-comprar">Añadir al Carrito</button>
+          <button class="btn">Añadir al Carrito</button>
         </article>
 
-        <article class="producto">
-          <div class="imagen-box">
-            <img
-              src="img/iPhone_13_ProMax.jpg"
-              alt="iPhone 13 PRO MAX"
-              class="producto-img"
-            />
-          </div>
+        <article class="item">
+          <img
+            src="img/iPhone_13_ProMax.jpg"
+            alt="iPhone 13 PRO MAX"
+            class="foto"
+          />
           <h3>iPhone 13 PRO MAX (Usado)</h3>
           <p>
             Pantalla inmensa y batería interminable. Testeado al 100%, ideal
@@ -120,16 +95,11 @@
             128GB / 256GB / 512GB / 1TB
           </p>
           <div class="precio">$580.00</div>
-          <button class="btn-comprar">Añadir al Carrito</button>
+          <button class="btn">Añadir al Carrito</button>
         </article>
 
-        <!-- ----------------------------------------------------------------------- -->
-        <!--                                SERIE 14                                 -->
-        <!-- ----------------------------------------------------------------------- -->
-        <article class="producto">
-          <div class="imagen-box">
-            <img src="img/iPhone_14.jpg" alt="iPhone 14" class="producto-img" />
-          </div>
+        <article class="item">
+          <img src="img/iPhone_14.jpg" alt="iPhone 14" class="foto" />
           <h3>iPhone 14 (Usado)</h3>
           <p>
             El equilibrio perfecto. Menos de un año de uso, sin marcas en la
@@ -139,17 +109,11 @@
             128GB / 256GB / 512GB
           </p>
           <div class="precio">$499.00</div>
-          <button class="btn-comprar">Añadir al Carrito</button>
+          <button class="btn">Añadir al Carrito</button>
         </article>
 
-        <article class="producto">
-          <div class="imagen-box">
-            <img
-              src="img/iPhone_14_Pro.jpg"
-              alt="iPhone 14 PRO"
-              class="producto-img"
-            />
-          </div>
+        <article class="item">
+          <img src="img/iPhone_14_Pro.jpg" alt="iPhone 14 PRO" class="foto" />
           <h3>iPhone 14 PRO (Usado)</h3>
           <p>
             Da el salto a la Isla Dinámica. Estado impecable, sin golpes ni
@@ -157,17 +121,15 @@
             128GB / 256GB / 512GB / 1TB
           </p>
           <div class="precio">$650.00</div>
-          <button class="btn-comprar">Añadir al Carrito</button>
+          <button class="btn">Añadir al Carrito</button>
         </article>
 
-        <article class="producto">
-          <div class="imagen-box">
-            <img
-              src="img/iPhone_14_ProMax.jpg"
-              alt="iPhone 14 PRO MAX"
-              class="producto-img"
-            />
-          </div>
+        <article class="item">
+          <img
+            src="img/iPhone_14_ProMax.jpg"
+            alt="iPhone 14 PRO MAX"
+            class="foto"
+          />
           <h3>iPhone 14 PRO MAX (Usado)</h3>
           <p>
             Una verdadera nave. Condición de batería superior al 90%, módulos de
@@ -177,205 +139,25 @@
             128GB / 256GB / 512GB / 1TB
           </p>
           <div class="precio">$750.00</div>
-          <button class="btn-comprar">Añadir al Carrito</button>
-        </article>
-
-        <!-- ----------------------------------------------------------------------- -->
-        <!--                                SERIE 15                                 -->
-        <!-- ----------------------------------------------------------------------- -->
-        <article class="producto">
-          <div class="imagen-box">
-            <img src="img/iPhone_15.jpg" alt="iPhone 15" class="producto-img" />
-          </div>
-          <h3>iPhone 15 (Usado)</h3>
-          <p>
-            Diseño renovado y por fin con puerto USB-C. Un equipo súper cuidado,
-            pasó todos nuestros tests de calidad.<br /><strong
-              >Almacenamiento:</strong
-            >
-            128GB / 256GB / 512GB
-          </p>
-          <div class="precio">$620.00</div>
-          <button class="btn-comprar">Añadir al Carrito</button>
-        </article>
-
-        <article class="producto">
-          <div class="imagen-box">
-            <img
-              src="img/iPhone_15_Pro.jpg"
-              alt="iPhone 15 PRO"
-              class="producto-img"
-            />
-          </div>
-          <h3>iPhone 15 PRO (Usado)</h3>
-          <p>
-            Livianísimo gracias a su cuerpo de titanio. Seminuevo, batería al
-            95% y rendimiento fluido sin calentamientos.<br /><strong
-              >Almacenamiento:</strong
-            >
-            128GB / 256GB / 512GB / 1TB
-          </p>
-          <div class="precio">$780.00</div>
-          <button class="btn-comprar">Añadir al Carrito</button>
-        </article>
-
-        <article class="producto">
-          <div class="imagen-box">
-            <img
-              src="img/iPhone_15_ProMax.jpg"
-              alt="iPhone 15 PRO MAX"
-              class="producto-img"
-            />
-          </div>
-          <h3>iPhone 15 PRO MAX (Usado)</h3>
-          <p>
-            De un solo dueño. Estética 10/10, literalmente como sacado de la
-            caja. Listo para transferir y usar.<br /><strong
-              >Almacenamiento:</strong
-            >
-            256GB / 512GB / 1TB
-          </p>
-          <div class="precio">$890.00</div>
-          <button class="btn-comprar">Añadir al Carrito</button>
-        </article>
-
-        <!-- ----------------------------------------------------------------------- -->
-        <!--                                SERIE 16                                 -->
-        <!-- ----------------------------------------------------------------------- -->
-        <article class="producto">
-          <div class="imagen-box">
-            <img src="img/iPhone_16.jpg" alt="iPhone 16" class="producto-img" />
-          </div>
-          <h3>iPhone 16 (Usado/Seminuevo)</h3>
-          <p>
-            Casi nuevo, con muy pocos ciclos de carga. Viene con el nuevo botón
-            de cámara y batería al 100%.<br /><strong>Almacenamiento:</strong>
-            128GB / 256GB / 512GB
-          </p>
-          <div class="precio">$720.00</div>
-          <button class="btn-comprar">Añadir al Carrito</button>
-        </article>
-
-        <article class="producto">
-          <div class="imagen-box">
-            <img
-              src="img/iPhone_16_Pro.jpg"
-              alt="iPhone 16 PRO"
-              class="producto-img"
-            />
-          </div>
-          <h3>iPhone 16 PRO (Usado/Seminuevo)</h3>
-          <p>
-            Potencia extrema en tamaño compacto. Equipo de exhibición, sin
-            marcas de uso diario ni desgaste en botones.<br /><strong
-              >Almacenamiento:</strong
-            >
-            128GB / 256GB / 512GB / 1TB
-          </p>
-          <div class="precio">$890.00</div>
-          <button class="btn-comprar">Añadir al Carrito</button>
-        </article>
-
-        <article class="producto">
-          <div class="imagen-box">
-            <img
-              src="img/iPhone_16_ProMax.jpg"
-              alt="iPhone 16 PRO MAX"
-              class="producto-img"
-            />
-          </div>
-          <h3>iPhone 16 PRO MAX (Usado/Seminuevo)</h3>
-          <p>
-            Autonomía insuperable. Unidades súper exclusivas, impecables
-            estéticamente y con garantía de nuestra tienda.<br /><strong
-              >Almacenamiento:</strong
-            >
-            256GB / 512GB / 1TB
-          </p>
-          <div class="precio">$999.00</div>
-          <button class="btn-comprar">Añadir al Carrito</button>
-        </article>
-
-        <!-- ----------------------------------------------------------------------- -->
-        <!--                                SERIE 17                                 -->
-        <!-- ----------------------------------------------------------------------- -->
-        <article class="producto">
-          <div class="imagen-box">
-            <img src="img/iPhone_17.jpg" alt="iPhone 17" class="producto-img" />
-          </div>
-          <h3>iPhone 17 (Sellado)</h3>
-          <p>
-            Recién llegado. Equipo en caja cerrada de fábrica, listo para que lo
-            actives con garantía oficial Apple.<br /><strong
-              >Almacenamiento:</strong
-            >
-            128GB / 256GB / 512GB
-          </p>
-          <div class="precio">$810.00</div>
-          <button class="btn-comprar">Añadir al Carrito</button>
-        </article>
-
-        <article class="producto">
-          <div class="imagen-box">
-            <img
-              src="img/iPhone_17_Pro.jpg"
-              alt="iPhone 17 PRO"
-              class="producto-img"
-            />
-          </div>
-          <h3>iPhone 17 PRO (Sellado)</h3>
-          <p>
-            El más buscado. 0km, sin activar. Estrená vos mismo el nuevo diseño
-            y las cámaras más avanzadas del mercado.<br /><strong
-              >Almacenamiento:</strong
-            >
-            256GB / 512GB / 1TB
-          </p>
-          <div class="precio">$980.00</div>
-          <button class="btn-comprar">Añadir al Carrito</button>
-        </article>
-
-        <article class="producto">
-          <div class="imagen-box">
-            <img
-              src="img/iPhone_17_ProMax.jpg"
-              alt="iPhone 17 PRO MAX"
-              class="producto-img"
-            />
-          </div>
-          <h3>iPhone 17 PRO MAX (Sellado)</h3>
-          <p>
-            El rey absoluto. Equipo 100% nuevo y sellado. Date el gusto de
-            llevarte el tope de gama en su mejor versión.<br /><strong
-              >Almacenamiento:</strong
-            >
-            256GB / 512GB / 1TB / 2TB
-          </p>
-          <div class="precio">$1,150.00</div>
-          <button class="btn-comprar">Añadir al Carrito</button>
+          <button class="btn">Añadir al Carrito</button>
         </article>
       </div>
     </main>
 
-    <!-- ----------------------------------------------------------------------- -->
-    <!--                              PIE DE PAGINA                              -->
-    <!-- ----------------------------------------------------------------------- -->
     <footer>
-      <p class="copyright">
+      <p class="copy">
         &copy; 2026 Mundo iPhone. Todos los derechos reservados.
       </p>
-      <div class="footer-contacto">
+      <div class="footer-info">
         <span
           ><i class="fas fa-map-marker-alt"></i> Av. España 400, Tandil</span
         >
-
-        <a href="#" class="link-footer">
-          <i class="fab fa-whatsapp whatsapp-icon"></i> 249 452365
-        </a>
-
-        <a href="#" class="link-footer">
-          <i class="fab fa-instagram ig-icon"></i> @mundoIphone
-        </a>
+        <a href="#" class="enlace"
+          ><i class="fab fa-whatsapp"></i> 249 452365</a
+        >
+        <a href="#" class="enlace"
+          ><i class="fab fa-instagram"></i> @mundoIphone</a
+        >
       </div>
     </footer>
   </body>
