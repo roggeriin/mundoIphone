@@ -42,6 +42,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo {
@@ -53,6 +56,9 @@ nav a {
   color: white;
   text-decoration: none;
   margin-left: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 nav a:hover {
@@ -133,6 +139,34 @@ nav a:hover {
   color: #000;
   font-weight: bold;
   margin: 10px 0;
+}
+
+.colores {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 10px 0;
+}
+
+.swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.2s,
+    border 0.2s;
+}
+
+.swatch:hover {
+  transform: scale(1.1);
+}
+
+.swatch.activo {
+  border: 2px solid #000;
+  transform: scale(1.1);
 }
 
 .btn {
@@ -241,6 +275,143 @@ nav a:hover {
 }
 
 /* -------------------------------------------------------------------------- */
+/*                                   CARRITO                                  */
+/* -------------------------------------------------------------------------- */
+
+.caja-carrito {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.item-carrito {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.foto-carrito {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.info-carrito {
+  flex-grow: 1;
+  margin-left: 20px;
+}
+
+.info-carrito h3 {
+  margin: 0 0 5px 0;
+  font-size: 1.1rem;
+}
+
+.precio-carrito {
+  color: #e74c3c;
+  font-weight: bold;
+  margin: 0;
+}
+
+.input-cantidad {
+  width: 50px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+  margin: 0 20px;
+  font-family: inherit;
+}
+
+.caja-icono {
+  position: relative;
+  display: inline-block;
+}
+
+.badge-carrito {
+  position: absolute;
+  top: -10px;
+  right: -12px;
+  color: rgb(249, 249, 249);
+  border-radius: 50%;
+  min-width: 18px;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+  display: none;
+}
+
+.btn-borrar {
+  background: transparent;
+  color: #999;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-borrar:hover {
+  color: #e74c3c;
+}
+
+.resumen-carrito {
+  background: white;
+  padding: 25px;
+  border: 1px solid #e1e8ed;
+  border-radius: 12px;
+  height: fit-content;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.resumen-carrito h3 {
+  margin-top: 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.fila-resumen {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.total-final {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #000;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+  margin-top: 15px;
+}
+
+.btn-pagar {
+  width: 100%;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.btn-pagar:hover {
+  background-color: #2ecc71;
+}
+
+/* -------------------------------------------------------------------------- */
 /*                                PIE DE PÁGINA                               */
 /* -------------------------------------------------------------------------- */
 footer {
@@ -274,7 +445,7 @@ footer {
 /* -------------------------------------------------------------------------- */
 /*               ADAPTACIÓN PARA PANTALLAS PEQUEÑAS (CELULARES)               */
 /* -------------------------------------------------------------------------- */
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   header {
     flex-direction: column;
     gap: 15px;
@@ -306,4 +477,210 @@ footer {
   .footer-info {
     flex-direction: column;
   }
+
+  .caja-carrito {
+    grid-template-columns: 1fr;
+  }
+
+  .item-carrito {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .info-carrito {
+    margin-left: 0;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                         OPCIONES DE ALMACENAMIENTO                         */
+/* -------------------------------------------------------------------------- */
+.opciones-almacenamiento {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.capacidad {
+  font-size: 0.75rem;
+  padding: 5px 12px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: #fff;
+  color: #555;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.capacidad:hover {
+  background-color: #f0f0f0;
+  border-color: #999;
+}
+
+.capacidad.activa {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                             COLORES DE IPHONE                              */
+/* -------------------------------------------------------------------------- */
+/* Serie 13 */
+.color-ip13-azul {
+  background-color: #435b66;
+}
+.color-ip13-rojo {
+  background-color: #c72535;
+}
+.color-ip13-blanco {
+  background-color: #fbf7f4;
+}
+
+.color-ip13p-grafito {
+  background-color: #5c5b57;
+}
+.color-ip13p-oro {
+  background-color: #f9e5c9;
+}
+.color-ip13p-verde {
+  background-color: #5b6756;
+}
+
+.color-ip13pm-oro {
+  background-color: #f9e5c9;
+}
+.color-ip13pm-sierra {
+  background-color: #a7c1d9;
+}
+.color-ip13pm-plata {
+  background-color: #f1f2ed;
+}
+
+/* Serie 14 */
+.color-ip14-morado {
+  background-color: #e5ddea;
+}
+.color-ip14-medianoche {
+  background-color: #222930;
+}
+.color-ip14-rojo {
+  background-color: #fc0324;
+}
+
+.color-ip14p-morado {
+  background-color: #594f63;
+}
+.color-ip14p-oro {
+  background-color: #f4e8ce;
+}
+.color-ip14p-plata {
+  background-color: #f0f2f2;
+}
+
+.color-ip14pm-negro {
+  background-color: #403e3d;
+}
+.color-ip14pm-morado {
+  background-color: #594f63;
+}
+.color-ip14pm-plata {
+  background-color: #f0f2f2;
+}
+
+/* Serie 15 */
+.color-ip15-rosa {
+  background-color: #e2c0c7;
+}
+.color-ip15-negro {
+  background-color: #3b3b3c;
+}
+.color-ip15-verde {
+  background-color: #cdd8cd;
+}
+
+.color-ip15p-natural {
+  background-color: #8c8984;
+}
+.color-ip15p-azul {
+  background-color: #3c414c;
+}
+.color-ip15p-negro {
+  background-color: #403e3d;
+}
+
+.color-ip15pm-azul {
+  background-color: #3c414c;
+}
+.color-ip15pm-blanco {
+  background-color: #f2f1ec;
+}
+.color-ip15pm-natural {
+  background-color: #8c8984;
+}
+
+/* Serie 16 */
+.color-ip16-fucsia {
+  background-color: #e86b97;
+}
+.color-ip16-negro {
+  background-color: #3b3b3c;
+}
+.color-ip16-ultramarino {
+  background-color: #555b71;
+}
+
+.color-ip16p-blanco {
+  background-color: #f2f1ec;
+}
+.color-ip16p-natural {
+  background-color: #8c8984;
+}
+.color-ip16p-negro {
+  background-color: #403e3d;
+}
+
+.color-ip16pm-desierto {
+  background-color: #c6ab95;
+}
+.color-ip16pm-blanco {
+  background-color: #f2f1ec;
+}
+.color-ip16pm-natural {
+  background-color: #8c8984;
+}
+
+/* Serie 17 */
+.color-ip17-verde {
+  background-color: #b1c7b3;
+}
+.color-ip17-azul {
+  background-color: #a4b9c5;
+}
+.color-ip17-lavanda {
+  background-color: #cac0cf;
+}
+
+.color-ip17p-azul {
+  background-color: #2c3545;
+}
+.color-ip17p-naranja {
+  background-color: #b86438;
+}
+.color-ip17p-plata {
+  background-color: #e5e5ea;
+}
+
+.color-ip17pm-naranja {
+  background-color: #b86438;
+}
+.color-ip17pm-azul {
+  background-color: #1e2532;
+}
+.color-ip17pm-plata {
+  background-color: #e5e5ea;
 }

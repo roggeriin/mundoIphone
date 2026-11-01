@@ -20,12 +20,39 @@
       <nav>
         <a href="../index.html"><i class="fas fa-home"></i> Inicio</a>
         <a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a>
-        <a href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito</a>
+        <a href="carrito.html">
+          <span class="caja-icono">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="contador-carrito" class="badge-carrito">0</span>
+          </span>
+          Carrito
+        </a>
       </nav>
     </header>
 
-    <main class="principal">
-      <h2 class="titulo" style="margin-top: 3rem">Página en creación</h2>
+    <main class="container principal">
+      <h2 class="titulo">Tu Carrito de Compras</h2>
+      <div class="caja-carrito">
+        <section class="lista-carrito">
+          <!-- JS inserta los productos acá automáticamente -->
+        </section>
+        <aside class="resumen-carrito">
+          <h3>Resumen de Compra</h3>
+          <div class="fila-resumen">
+            <span>Subtotal</span>
+            <span id="monto-subtotal">$0.00</span>
+          </div>
+          <div class="fila-resumen">
+            <span>Envío</span>
+            <span>Gratis</span>
+          </div>
+          <div class="fila-resumen total-final">
+            <span>Total</span>
+            <span id="monto-total">$0.00</span>
+          </div>
+          <button class="btn-pagar">Proceder al Pago</button>
+        </aside>
+      </div>
     </main>
 
     <footer>
