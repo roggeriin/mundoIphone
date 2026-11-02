@@ -42,6 +42,7 @@ const textoSubtotal = document.getElementById("monto-subtotal");
 const textoTotal = document.getElementById("monto-total");
 
 function renderizarCarrito() {
+  // Si no estamos en la página del carrito, no hacemos nada
   if (!contenedorCarrito) {
     return;
   }
@@ -57,17 +58,24 @@ function renderizarCarrito() {
     return;
   }
 
+  // Recorremos el carrito
   for (let i = 0; i < carrito.length; i++) {
     let producto = carrito[i];
 
     let itemVisual = document.createElement("div");
     itemVisual.classList.add("item-carrito");
 
+    // Nos aseguramos de leer correctamente las propiedades del producto guardado
+    let tituloItem =
+      producto.titulo || producto.nombre || "iPhone Seleccionado";
+    let precioItem = producto.precio || "$0.00";
+    let imagenItem = producto.imagen || "";
+
     itemVisual.innerHTML = `
-      <img src="${producto.imagen}" alt="${producto.titulo}" class="foto-carrito" />
+      <img src="${imagenItem}" alt="${tituloItem}" class="foto-carrito" />
       <div class="info-carrito">
-        <h3>${producto.titulo}</h3>
-        <p class="precio-carrito">${producto.precio}</p>
+        <h3>${tituloItem}</h3>
+        <p class="precio-carrito">${precioItem}</p>
       </div>
       <input type="number" value="1" min="1" class="input-cantidad" readonly />
       <button class="btn-borrar" data-index="${i}"><i class="fas fa-trash"></i></button>
@@ -75,10 +83,13 @@ function renderizarCarrito() {
 
     contenedorCarrito.appendChild(itemVisual);
 
+    // Limpiamos el texto del precio para sumarlo bien matemáticamente
     let precioLimpio = parseFloat(
-      producto.precio.replace("$", "").replace(/,/g, ""),
+      precioItem.replace("$", "").replace(/,/g, ""),
     );
-    totalCalculado = totalCalculado + precioLimpio;
+    if (!isNaN(precioLimpio)) {
+      totalCalculado = totalCalculado + precioLimpio;
+    }
   }
 
   const precioFormateado =
@@ -102,6 +113,7 @@ function asignarEventosBorrar() {
       let boton = evento.target.closest(".btn-borrar");
       let indice = boton.getAttribute("data-index");
 
+      // Lo borramos del array y actualizamos el almacenamiento local
       carrito.splice(indice, 1);
       localStorage.setItem("carritoMundoIphone", JSON.stringify(carrito));
 
@@ -113,11 +125,13 @@ function asignarEventosBorrar() {
 
 // --- CORRECCIÓN PARA EL CACHÉ DEL NAVEGADOR (GESTOS DEL CELULAR) ---
 window.addEventListener("pageshow", function (evento) {
-  // Si la página se cargó desde la caché del navegador al usar el gesto de volver
   if (evento.persisted) {
-    // Forzamos a leer de nuevo el localStorage y actualizar todo
     carrito = JSON.parse(localStorage.getItem("carritoMundoIphone")) || [];
     actualizarContador();
     renderizarCarrito();
   }
 });
+
+// Ejecutamos ambas funciones apenas carga cualquier página
+actualizarContador();
+renderizarCarrito();
