@@ -61,14 +61,14 @@ nav a {
   gap: 8px;
 }
 
-nav a:hover {
-  text-decoration: underline;
-}
-
 .banner {
   text-align: center;
   padding: 3rem 1rem;
 }
+nav a:hover {
+  text-decoration: underline;
+}
+
 
 /* -------------------------------------------------------------------------- */
 /*                           SECCIÓN SOBRE NOSOTROS                           */
@@ -122,6 +122,7 @@ nav a:hover {
   height: 180px;
   object-fit: contain;
   margin-bottom: 15px;
+  transition: opacity 0.3s ease-in-out; /* Agrega esta línea */
 }
 
 .item h3 {
@@ -548,7 +549,7 @@ footer {
   background-color: #f9e5c9;
 }
 .color-ip13p-verde {
-  background-color: #5b6756;
+  background-color: #658856;
 }
 
 .color-ip13pm-oro {
@@ -631,7 +632,7 @@ footer {
   background-color: #3b3b3c;
 }
 .color-ip16-ultramarino {
-  background-color: #555b71;
+  background-color: #4463d3;
 }
 
 .color-ip16p-blanco {
@@ -669,14 +670,14 @@ footer {
   background-color: #2c3545;
 }
 .color-ip17p-naranja {
-  background-color: #b86438;
+  background-color: #ce672f;
 }
 .color-ip17p-plata {
   background-color: #e5e5ea;
 }
 
 .color-ip17pm-naranja {
-  background-color: #b86438;
+  background-color: #ce672f;
 }
 .color-ip17pm-azul {
   background-color: #1e2532;
