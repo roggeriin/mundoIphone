@@ -124,14 +124,8 @@ function asignarEventosBorrar() {
 }
 
 // --- CORRECCIÓN PARA EL CACHÉ DEL NAVEGADOR (GESTOS DEL CELULAR) ---
-window.addEventListener("pageshow", function (evento) {
-  if (evento.persisted) {
-    carrito = JSON.parse(localStorage.getItem("carritoMundoIphone")) || [];
-    actualizarContador();
-    renderizarCarrito();
-  }
+window.addEventListener("pageshow", function () {
+  carrito = JSON.parse(localStorage.getItem("carritoMundoIphone")) || [];
+  actualizarContador();
+  renderizarCarrito();
 });
-
-// Ejecutamos ambas funciones apenas carga cualquier página
-actualizarContador();
-renderizarCarrito();
