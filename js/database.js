@@ -1,4 +1,4 @@
-const arrayProductos = [
+export const arrayProductos = [
   /* -------------------------------------------------------------------------- */
   /*             MODELOS DISPONIBLES (SIMULA UNA BASE DE DATOS REAL)            */
   /* -------------------------------------------------------------------------- */
