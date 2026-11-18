@@ -1,11 +1,20 @@
-const KEY = "carritoMundoIphone"; // Mantenemos tu key para no perder los datos que ya tenías guardados
+const KEY = "carritoMundoIphone";
 
 export const guardarCarrito = (carrito) => {
   localStorage.setItem(KEY, JSON.stringify(carrito));
 };
 
 export const obtenerCarrito = () => {
-  return JSON.parse(localStorage.getItem(KEY)) || [];
+  try {
+    const carrito = JSON.parse(localStorage.getItem(KEY) || "[]");
+    if (Array.isArray(carrito)) {
+      return carrito;
+    }
+
+    return [];
+  } catch {
+    return [];
+  }
 };
 
 export const vaciarCarritoStorage = () => {

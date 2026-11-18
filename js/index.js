@@ -1,137 +1,168 @@
 import { obtenerCarrito } from "./storage.js";
 import { actualizarContador } from "./ui.js";
 import { agregarAlCarrito } from "./funcionesCarrito.js";
-import { arrayProductos } from "./database.js";
 
-const renderizarProductos = () => {
-  const mainProductos = document.getElementById("main-productos");
-  if (!mainProductos) return;
-
-  mainProductos.innerHTML = ""; // Limpiamos por seguridad
-
-  // Recorremos la base de datos armando tus tarjetas personalizadas
-  arrayProductos.forEach((producto) => {
-    const tarjeta = document.createElement("article");
-    tarjeta.classList.add("item");
-
-    // HTML dinámico de tus capacidades
-    let htmlCapacidades = '<div class="opciones-almacenamiento">';
-    producto.almacenamientos.forEach((cap, index) => {
-      let claseActiva = index === 0 ? "activa" : "";
-      htmlCapacidades += `<span class="capacidad ${claseActiva}" data-precio="${cap.precio}">${cap.gb}</span>`;
-    });
-    htmlCapacidades += "</div>";
-
-    // HTML dinámico de tus colores
-    let htmlColores = '<div class="colores">';
-    producto.colores.forEach((color, index) => {
-      let claseActivo = index === 0 ? "activo" : "";
-      htmlColores += `<span class="swatch ${claseActivo} ${color.claseCss}" data-img="${color.img}" data-nombre="${color.nombre}"></span>`;
-    });
-    htmlColores += "</div>";
-
-    const precioInicial = producto.almacenamientos[0].precio;
-    const imagenInicial = producto.colores[0].img;
-
-    tarjeta.innerHTML = `
-      <img src="${imagenInicial}" alt="${producto.nombre}" class="foto" />
-      <h3>${producto.nombre}</h3>
-      <p>${producto.descripcion}</p>
-      ${htmlCapacidades}
-      ${htmlColores}
-      <div class="precio">$${precioInicial}</div>
-      <button class="btn">Añadir al Carrito</button>
-    `;
-
-    mainProductos.appendChild(tarjeta);
-  });
-
-  asignarEventosTarjetas();
+const crearElemento = (etiqueta, clase, texto = "") => {
+  const elemento = document.createElement(etiqueta);
+  if (clase) elemento.classList.add(clase);
+  elemento.textContent = texto;
+  return elemento;
 };
 
-const asignarEventosTarjetas = () => {
-  // A. Evento de capacidades (Actualización de Precio)
-  const pildoras = document.querySelectorAll(".capacidad");
-  pildoras.forEach((pildora) => {
-    pildora.addEventListener("click", (evento) => {
-      const pildoraTocada = evento.target;
-      const tarjeta = pildoraTocada.closest(".item");
+const crearOpcionesAlmacenamiento = (almacenamientos) => {
+  const opciones = crearElemento("div", "opciones-almacenamiento");
+
+  almacenamientos.forEach((almacenamiento, indice) => {
+    const capacidad = crearElemento("span", "capacidad", almacenamiento.gb);
+    capacidad.dataset.precio = almacenamiento.precio;
+
+    if (indice === 0) capacidad.classList.add("activa");
+    opciones.append(capacidad);
+  });
+
+  return opciones;
+};
+
+const crearOpcionesColor = (colores) => {
+  const opciones = crearElemento("div", "colores");
+
+  colores.forEach((color, indice) => {
+    const swatch = crearElemento("span", "swatch");
+    swatch.classList.add(color.claseCss);
+    swatch.dataset.img = color.img;
+    swatch.dataset.nombre = color.nombre;
+
+    if (indice === 0) swatch.classList.add("activo");
+    opciones.append(swatch);
+  });
+
+  return opciones;
+};
+
+const crearTarjetaProducto = (producto) => {
+  const tarjeta = crearElemento("article", "item");
+  const foto = crearElemento("img", "foto");
+  foto.src = producto.colores[0].img;
+  foto.alt = producto.nombre;
+
+  const titulo = crearElemento("h3", "", producto.nombre);
+  const descripcion = crearElemento("p", "", producto.descripcion);
+  const opcionesAlmacenamiento = crearOpcionesAlmacenamiento(
+    producto.almacenamientos,
+  );
+  const opcionesColor = crearOpcionesColor(producto.colores);
+  const precio = crearElemento(
+    "div",
+    "precio",
+    `$${producto.almacenamientos[0].precio}`,
+  );
+  const boton = crearElemento("button", "btn", "Añadir al Carrito");
+  boton.type = "button";
+
+  tarjeta.append(
+    foto,
+    titulo,
+    descripcion,
+    opcionesAlmacenamiento,
+    opcionesColor,
+    precio,
+    boton,
+  );
+
+  return tarjeta;
+};
+
+const asignarEventosTarjetas = (contenedor) => {
+  contenedor.querySelectorAll(".capacidad").forEach((capacidad) => {
+    capacidad.addEventListener("click", (evento) => {
+      const capacidadTocada = evento.currentTarget;
+      const tarjeta = capacidadTocada.closest(".item");
 
       tarjeta
         .querySelectorAll(".capacidad")
-        .forEach((p) => p.classList.remove("activa"));
-      pildoraTocada.classList.add("activa");
-
-      const nuevoPrecio = pildoraTocada.getAttribute("data-precio");
-      if (nuevoPrecio) {
-        tarjeta.querySelector(".precio").innerText = "$" + nuevoPrecio;
-      }
+        .forEach((opcion) => opcion.classList.remove("activa"));
+      capacidadTocada.classList.add("activa");
+      tarjeta.querySelector(".precio").textContent =
+        `$${capacidadTocada.dataset.precio}`;
     });
   });
 
-  // B. Evento de colores (Transición suave de la foto)
-  const swatches = document.querySelectorAll(".swatch");
-  swatches.forEach((swatch) => {
+  contenedor.querySelectorAll(".swatch").forEach((swatch) => {
     swatch.addEventListener("click", (evento) => {
-      const circulitoTocado = evento.target;
-      const tarjeta = circulitoTocado.closest(".item");
-
+      const colorTocado = evento.currentTarget;
+      const tarjeta = colorTocado.closest(".item");
       const imagenCelular = tarjeta.querySelector(".foto");
-      const nuevaImagen = circulitoTocado.getAttribute("data-img");
 
       imagenCelular.style.opacity = 0;
       setTimeout(() => {
-        imagenCelular.src = nuevaImagen;
+        imagenCelular.src = colorTocado.dataset.img;
         imagenCelular.style.opacity = 1;
       }, 300);
 
       tarjeta
         .querySelectorAll(".swatch")
-        .forEach((c) => c.classList.remove("activo"));
-      circulitoTocado.classList.add("activo");
+        .forEach((opcion) => opcion.classList.remove("activo"));
+      colorTocado.classList.add("activo");
     });
   });
 
-  // C. Evento para Añadir al Carrito
-  const botonesAgregar = document.querySelectorAll(".item .btn");
-  botonesAgregar.forEach((boton) => {
+  contenedor.querySelectorAll(".item .btn").forEach((boton) => {
     boton.addEventListener("click", (evento) => {
-      const tarjeta = evento.target.closest(".item");
-
-      const swatchActivo = tarjeta.querySelector(".swatch.activo");
-      let colorElegido = swatchActivo
-        ? " - " + swatchActivo.getAttribute("data-nombre")
-        : "";
-
+      const tarjeta = evento.currentTarget.closest(".item");
+      const colorActivo = tarjeta.querySelector(".swatch.activo");
       const capacidadActiva = tarjeta.querySelector(".capacidad.activa");
-      let capacidadElegida = capacidadActiva
-        ? " (" + capacidadActiva.innerText + ")"
-        : "";
+      let nombreColor = "";
+      if (colorActivo) {
+        nombreColor = ` - ${colorActivo.dataset.nombre}`;
+      }
 
-      const productoFormateado = {
-        titulo:
-          tarjeta.querySelector("h3").innerText +
-          capacidadElegida +
-          colorElegido,
-        precio: tarjeta.querySelector(".precio").innerText,
+      let nombreCapacidad = "";
+      if (capacidadActiva) {
+        nombreCapacidad = ` (${capacidadActiva.textContent})`;
+      }
+
+      agregarAlCarrito({
+        titulo: `${tarjeta.querySelector("h3").textContent}${nombreCapacidad}${nombreColor}`,
+        precio: tarjeta.querySelector(".precio").textContent,
         imagen: tarjeta.querySelector(".foto").src,
-      };
-
-      agregarAlCarrito(productoFormateado);
+      });
     });
   });
 };
 
+const renderizarProductos = () => {
+  const contenedorProductos = document.getElementById("main-productos");
+  if (!contenedorProductos) return;
+
+  fetch("data/Iphone.json")
+    .then((respuesta) => {
+      if (!respuesta.ok) throw new Error("No se pudo cargar el catálogo.");
+      return respuesta.json();
+    })
+    .then((productos) => {
+      contenedorProductos.textContent = "";
+      productos.forEach((producto) => {
+        contenedorProductos.append(crearTarjetaProducto(producto));
+      });
+
+      asignarEventosTarjetas(contenedorProductos);
+    })
+    .catch((error) => {
+      console.error("Error al cargar los productos:", error);
+      const mensaje = crearElemento(
+        "p",
+        "mensaje-error",
+        "No se pudieron cargar los productos. Intentá nuevamente más tarde.",
+      );
+      contenedorProductos.replaceChildren(mensaje);
+    });
+};
+
 document.addEventListener("DOMContentLoaded", () => {
-  const carrito = obtenerCarrito();
-  actualizarContador(carrito);
+  actualizarContador(obtenerCarrito());
   renderizarProductos();
 });
 
-// TU FIX: Solución para los gestos del celular (Back/Forward Cache)
 window.addEventListener("pageshow", (evento) => {
-  if (evento.persisted) {
-    const carrito = obtenerCarrito();
-    actualizarContador(carrito);
-  }
+  if (evento.persisted) actualizarContador(obtenerCarrito());
 });

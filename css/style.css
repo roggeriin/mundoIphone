@@ -1,6 +1,15 @@
 /* -------------------------------------------------------------------------- */
 /*                              ESTILOS GENERALES                             */
 /* -------------------------------------------------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@700&display=swap");
+
+.logo {
+  font-family: "Syne", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
@@ -69,7 +78,6 @@ nav a:hover {
   text-decoration: underline;
 }
 
-
 /* -------------------------------------------------------------------------- */
 /*                           SECCIÓN SOBRE NOSOTROS                           */
 /* -------------------------------------------------------------------------- */
@@ -122,7 +130,7 @@ nav a:hover {
   height: 180px;
   object-fit: contain;
   margin-bottom: 15px;
-  transition: opacity 0.3s ease-in-out; /* Agrega esta línea */
+  transition: opacity 0.3s ease-in-out;
 }
 
 .item h3 {
@@ -286,6 +294,28 @@ nav a:hover {
   margin-top: 20px;
 }
 
+.carrito-vacio {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.carrito-vacio i {
+  display: block;
+  font-size: 3rem;
+  color: #ccc;
+  margin-bottom: 15px;
+}
+
+.carrito-vacio p {
+  color: #777;
+  margin: 0;
+}
+
+.mensaje-error {
+  text-align: center;
+  color: #b00020;
+  padding: 1rem;
+}
 .item-carrito {
   display: flex;
   align-items: center;
@@ -315,19 +345,15 @@ nav a:hover {
 }
 
 .precio-carrito {
-  color: #e74c3c;
+  color: #060606;
   font-weight: bold;
   margin: 0;
 }
 
-.input-cantidad {
-  width: 50px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  text-align: center;
+.cantidad-carrito {
   margin: 0 20px;
   font-family: inherit;
+  font-size: 1rem;
 }
 
 .caja-icono {
@@ -339,6 +365,7 @@ nav a:hover {
   position: absolute;
   top: -10px;
   right: -12px;
+  background-color: #e74c3c; /* Agregado: Fondo rojo para la burbuja */
   color: rgb(249, 249, 249);
   border-radius: 50%;
   min-width: 18px;
@@ -394,22 +421,67 @@ nav a:hover {
   margin-top: 15px;
 }
 
-.btn-pagar {
+.botones-finales {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-pagar,
+.btn-vaciar {
   width: 100%;
-  background-color: #27ae60;
-  color: white;
   border: none;
   padding: 15px;
   border-radius: 50px;
   cursor: pointer;
   font-size: 1.1rem;
   font-weight: 600;
-  margin-top: 10px;
   transition: 0.3s;
+}
+
+.btn-pagar {
+  background-color: #27ae60;
+  color: white;
 }
 
 .btn-pagar:hover {
   background-color: #2ecc71;
+}
+
+.btn-vaciar {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.btn-vaciar:hover {
+  background-color: #c0392b;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                               NOTIFICACIÓN TOAST                           */
+/* -------------------------------------------------------------------------- */
+.toast-notificacion {
+  position: fixed;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #27ae60;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: bottom 0.4s ease-in-out;
+  z-index: 9999;
+}
+
+.toast-notificacion.mostrar {
+  bottom: 30px;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -483,7 +555,29 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .item-carrito {
+  .carrito-vacio {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.carrito-vacio i {
+  display: block;
+  font-size: 3rem;
+  color: #ccc;
+  margin-bottom: 15px;
+}
+
+.carrito-vacio p {
+  color: #777;
+  margin: 0;
+}
+
+.mensaje-error {
+  text-align: center;
+  color: #b00020;
+  padding: 1rem;
+}
+.item-carrito {
     flex-direction: column;
     text-align: center;
     gap: 15px;
@@ -541,7 +635,6 @@ footer {
 .color-ip13-blanco {
   background-color: #fbf7f4;
 }
-
 .color-ip13p-grafito {
   background-color: #5c5b57;
 }
@@ -551,7 +644,6 @@ footer {
 .color-ip13p-verde {
   background-color: #658856;
 }
-
 .color-ip13pm-oro {
   background-color: #f9e5c9;
 }
@@ -572,7 +664,6 @@ footer {
 .color-ip14-rojo {
   background-color: #fc0324;
 }
-
 .color-ip14p-morado {
   background-color: #594f63;
 }
@@ -582,7 +673,6 @@ footer {
 .color-ip14p-plata {
   background-color: #f0f2f2;
 }
-
 .color-ip14pm-negro {
   background-color: #403e3d;
 }
@@ -603,7 +693,6 @@ footer {
 .color-ip15-verde {
   background-color: #cdd8cd;
 }
-
 .color-ip15p-natural {
   background-color: #8c8984;
 }
@@ -613,7 +702,6 @@ footer {
 .color-ip15p-negro {
   background-color: #403e3d;
 }
-
 .color-ip15pm-azul {
   background-color: #3c414c;
 }
@@ -634,7 +722,6 @@ footer {
 .color-ip16-ultramarino {
   background-color: #4463d3;
 }
-
 .color-ip16p-blanco {
   background-color: #f2f1ec;
 }
@@ -644,7 +731,6 @@ footer {
 .color-ip16p-negro {
   background-color: #403e3d;
 }
-
 .color-ip16pm-desierto {
   background-color: #c6ab95;
 }
@@ -665,7 +751,6 @@ footer {
 .color-ip17-lavanda {
   background-color: #cac0cf;
 }
-
 .color-ip17p-azul {
   background-color: #2c3545;
 }
@@ -675,7 +760,6 @@ footer {
 .color-ip17p-plata {
   background-color: #e5e5ea;
 }
-
 .color-ip17pm-naranja {
   background-color: #ce672f;
 }
@@ -685,3 +769,21 @@ footer {
 .color-ip17pm-plata {
   background-color: #e5e5ea;
 }
+
+/* Colores de los botones de SweetAlert2 */
+.swal2-popup .swal2-actions .swal2-confirm.swal-boton-principal {
+  background-color: #0d6efd;
+}
+
+.swal2-popup .swal2-actions .swal2-confirm.swal-boton-peligro {
+  background-color: #d33;
+}
+
+.swal2-popup .swal2-actions .swal2-confirm.swal-boton-pago {
+  background-color: #198754;
+}
+
+.swal2-popup .swal2-actions .swal2-cancel.swal-boton-cancelar {
+  background-color: #6c757d;
+}
+

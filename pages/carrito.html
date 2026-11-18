@@ -50,7 +50,11 @@
             <span>Total</span>
             <span id="monto-total">$0.00</span>
           </div>
-          <button class="btn-pagar">Proceder al Pago</button>
+
+          <div class="botones-finales">
+            <button id="btn-vaciar" class="btn btn-vaciar">Vaciar Carrito</button>
+            <button id="btn-pagar" class="btn btn-pagar">Pagar</button>
+          </div>
         </aside>
       </div>
     </main>
@@ -74,6 +78,8 @@
 
     <!-- Único script necesario para la página del carrito -->
     <!-- Nota: Si tu carrito.html está guardado adentro de una carpeta "pages", acordate de poner "../" al principio de la ruta -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="../js/carrito.js"></script>
   </body>
 </html>
+
